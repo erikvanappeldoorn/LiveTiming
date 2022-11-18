@@ -1,8 +1,10 @@
 using LiveTiming.Application.Queries;
+using LiveTiming.Domain;
 using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddScoped<ITimedLapRepository, ITimedLapRepository>();
 
 var app = builder.Build();
 
