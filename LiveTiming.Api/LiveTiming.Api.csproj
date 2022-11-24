@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\LiveTiming.Application\LiveTiming.Application.csproj" />
+      <ProjectReference Include="..\LiveTiming.Infrastructure\LiveTiming.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
