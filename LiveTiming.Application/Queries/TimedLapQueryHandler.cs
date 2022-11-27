@@ -3,7 +3,7 @@ using MediatR;
 
 namespace LiveTiming.Application.Queries;
 
-public class TimedLapQueryHandler : IRequestHandler<TimedLapQuery, TimedLap>
+public class TimedLapQueryHandler : IQueryHandler<TimedLapQuery, TimedLap>
 {
     private readonly ITimedLapRepository _timedLapRepository;
 
