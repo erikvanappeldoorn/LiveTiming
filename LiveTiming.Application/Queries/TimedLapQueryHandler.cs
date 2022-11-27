@@ -13,6 +13,6 @@ public class TimedLapQueryHandler : IQueryHandler<TimedLapQuery, TimedLap>
     }
     public async Task<TimedLap> Handle(TimedLapQuery query, CancellationToken cancellationToken)
     {
-        return await _timedLapRepository.GetTimedLapAsync(query.Driver, query.Lap);
+        return await _timedLapRepository.GetTimedLapAsync(query.Driver);
     }
 }

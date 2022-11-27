@@ -8,9 +8,9 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices();
 var app = builder.Build();
 
-app.MapGet("/", async (string driver, int lap, IMediator mediator) =>
+app.MapGet("/", async (string driver, IMediator mediator) =>
 {
-    var result = await mediator.Send(new TimedLapQuery {Driver = driver, Lap = lap});
+    var result = await mediator.Send(new TimedLapQuery {Driver = driver});
     return result;
 });
 
