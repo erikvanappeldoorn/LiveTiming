@@ -24,3 +24,5 @@ app.MapGet("/", async (string driver, IMediator mediator) =>
 }).WithOpenApi();
 
 app.Run();
+
+public partial class Program { }
