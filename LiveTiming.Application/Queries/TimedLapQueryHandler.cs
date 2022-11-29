@@ -3,7 +3,7 @@ using MediatR;
 
 namespace LiveTiming.Application.Queries;
 
-public class TimedLapQueryHandler : IQueryHandler<TimedLapQuery, TimedLap>
+public class TimedLapQueryHandler : IQueryHandler<TimedLapQuery, TimedLap?>
 {
     private readonly ITimedLapRepository _timedLapRepository;
 
@@ -11,7 +11,7 @@ public class TimedLapQueryHandler : IQueryHandler<TimedLapQuery, TimedLap>
     {
         _timedLapRepository = timedLapRepository;
     }
-    public async Task<TimedLap> Handle(TimedLapQuery query, CancellationToken cancellationToken)
+    public async Task<TimedLap?> Handle(TimedLapQuery query, CancellationToken cancellationToken)
     {
         return await _timedLapRepository.GetTimedLapAsync(query.Driver);
     }

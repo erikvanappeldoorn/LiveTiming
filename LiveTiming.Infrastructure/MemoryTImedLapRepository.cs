@@ -4,8 +4,12 @@ namespace LiveTiming.Infrastructure;
 
 public class MemoryTImedLapRepository : ITimedLapRepository
 {
-    public async Task<TimedLap> GetTimedLapAsync(string driver)
+    private readonly string[] drivers = {"ALO"};
+    public async Task<TimedLap?> GetTimedLapAsync(string driver)
     {
+        if (!drivers.Contains(driver))
+            return await Task.FromResult<TimedLap?>(null);
+        
         var timedLap = new TimedLap(driver)
         {
             Lap = 1,

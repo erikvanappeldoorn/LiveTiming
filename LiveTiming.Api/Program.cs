@@ -19,7 +19,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/", async (string driver, IMediator mediator) =>
 {
-    var result = await mediator.Send(new TimedLapQuery {Driver = driver});
+    var result = await mediator.Send(new TimedLapQuery(driver));
     return result;
 }).WithOpenApi();
 
