@@ -1,5 +1,7 @@
 using LiveTiming.Application;
+using LiveTiming.Application.Commands;
 using LiveTiming.Application.Queries;
+using LiveTiming.Domain;
 using LiveTiming.Infrastructure;
 using MediatR;
 
@@ -20,6 +22,12 @@ if (app.Environment.IsDevelopment())
 app.MapGet("/", async (string driver, IMediator mediator) =>
 {
     var result = await mediator.Send(new TimedLapQuery(driver));
+    return result;
+}).WithOpenApi();
+
+app.MapPost("/", async (SectorTime sectorTime, IMediator mediator) =>
+{
+    var result = await mediator.Send(new AddSectorTimeCommand(sectorTime));
     return result;
 }).WithOpenApi();
 
